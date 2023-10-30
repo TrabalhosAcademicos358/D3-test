@@ -2,31 +2,6 @@ import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
 import * as data from "./valuesAnalise.js";
 import { printElementMetrics } from "./elementMetrics.js"
 
-// const nodesJson = [
-//     { id: "Myriel", group: 1 },
-//     { id: "Napoleon", group: 1 },
-//     { id: "Mlle.Baptistine", group: 1 },
-//     { id: "Mme.Magloire", group: 1 },
-//     { id: "CountessdeLo", group: 1 },
-// ];
-
-// const linksJson = [
-//     { source: "Napoleon", target: "Myriel", value: 1 },
-//     { source: "Mlle.Baptistine", target: "Myriel", value: 8 },
-//     { source: "Mme.Magloire", target: "Myriel", value: 50 },
-//     {
-//         source: "Mme.Magloire",
-//         target: "Mlle.Baptistine",
-//         value: 6,
-//     },
-//     { source: "CountessdeLo", target: "Myriel", value: 1 },
-// ];
-
-// const data = {
-//     nodes: nodesJson,
-//     links: linksJson,
-// };
-
 const width = 928;
 const height = 600;
 
