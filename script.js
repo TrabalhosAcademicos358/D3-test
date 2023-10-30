@@ -1,5 +1,6 @@
 import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
 import * as data from "./valuesAnalise.js";
+import { printElementMetrics } from "./elementMetrics.js"
 
 // const nodesJson = [
 //     { id: "Myriel", group: 1 },
@@ -36,6 +37,8 @@ const color = d3.scaleOrdinal(d3.schemeCategory10);
 // so that re-evaluating this cell produces the same result.
 const links = data.links.map((d) => ({ ...d }));
 const nodes = data.nodes.map((d) => ({ ...d }));
+
+printElementMetrics(color)
 
 // Create a simulation with several forces.
 const simulation = d3
