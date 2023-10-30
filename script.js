@@ -77,9 +77,14 @@ const node = svg
     .data(nodes)
     .join("circle")
     .attr("r", 5)
-    .attr("fill", (d) => color(d.group));
+    .attr("fill", (d) => color(d.name));
 
-node.append("title").text((d) => d.id);
+// console.log(node)
+
+// node.append("text")
+//     .text((d) => d.id)
+//     .attr("x", 12) // Ajuste a posição do texto em relação ao círculo
+//     .attr("dy", ".35em");
 
 // Add a drag behavior.
 node.call(

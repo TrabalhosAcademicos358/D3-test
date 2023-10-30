@@ -9,9 +9,34 @@ body {
     background: #495057;
 }
 
+main {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: ". container metrics-values";
+}
+
 #container {
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    grid-area: container;
+}
+
+#container-metrics {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    grid-area: metrics-values;
+}
+
+.card-metrics {
+    background: #000;
+    border-radius: 8px;
+    padding: 12px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
 }
