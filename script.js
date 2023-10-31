@@ -2,8 +2,8 @@ import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
 import * as data from "./valuesAnalise.js";
 import { printElementMetrics } from "./elementMetrics.js"
 
-const width = 928;
-const height = 600;
+const width = 1200;
+const height = 800;
 
 // Specify the color scale.
 const color = d3.scaleOrdinal(d3.schemeCategory10);
@@ -54,8 +54,8 @@ const node = svg
     .selectAll()
     .data(nodes)
     .join("circle")
-    .attr("r", 5)
-    .attr("fill", (d) => color(d.name));
+    .attr("r", 7)
+    .attr("fill", (d) => color(d.group));
 
 // console.log(node)
 
