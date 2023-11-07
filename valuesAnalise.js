@@ -1,5 +1,7 @@
 import json from "./result.json" assert { type: "json" };
 
+const sourceLinks = "root";
+
 const functionListFilter = (list) => {
     return list.filter(
         (item) => item !== "falso_positivo" && item !== "falso_negativo"
@@ -13,6 +15,7 @@ const nodesGroup = Object.keys(json).map((key, index) => {
 
 const nodesResults = Object.keys(json).map((key, index) => {
     const listValues = Object.keys(json[key]);
+    if (sourceLinks === key) return null;
     const nodes = functionListFilter(listValues).map((item) => ({
         id: key + ":" + item,
         name: item,
@@ -30,19 +33,11 @@ const linksForNodesResults = Object.keys(json).map((key) => {
         target: key + ":" + item,
         value: 1,
     }));
-    return links;
+    return key !== sourceLinks ? links : [];
 });
 
-const linksForNodesGroup = nodesGroup
-    .map((obj) => {
-        const pathTestCase = obj.id.split("->");
-        if (pathTestCase.length > 1) {
-            pathTestCase.pop()
-            const stringIdNodeSource = pathTestCase.join("->");
-            return { source: stringIdNodeSource, target: obj.id, value: 4 };
-        }
-        return null;
-    })
-    .filter((item) => item !== null);
+const linksForNodesGroup = nodesGroup.map((obj) => {
+    return { source: sourceLinks, target: obj.id, value: 4 };
+});
 
 export const links = [].concat(...linksForNodesResults, ...linksForNodesGroup);
