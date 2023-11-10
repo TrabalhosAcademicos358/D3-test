@@ -46,7 +46,7 @@ const nodesResults = Object.keys(json)
             const listValuesResults = json[nameKey][nameResult];
             return listValuesResults.map((item) => ({
                 id: obj.id + separator + item,
-                nameResult: item,
+                name: item,
                 group: obj.group,
             }));
         });

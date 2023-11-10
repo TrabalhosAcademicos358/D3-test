@@ -5,8 +5,9 @@ import { printElementMetrics } from "./elementMetrics.js"
 const width = 1920;
 const height = 1920;
 
-// Specify the color scale.
-const color = d3.scaleOrdinal(d3.schemeCategory10);
+// https://d3js.org/d3-scale/ordinal#ordinal_unknown
+// https://coolors.co/1e3888-ec4e20-7bc950-009fb7-eff1f3
+const color = d3.scaleOrdinal(["plus", "minus", "equals"], ["#7BC950", "#EC4E20", "#1E3888"]);
 
 // The force simulation mutates links and nodes, so create a copy
 // so that re-evaluating this cell produces the same result.
