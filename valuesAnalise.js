@@ -55,25 +55,17 @@ const nodesResults = Object.keys(json)
     })
     .filter((obj) => obj !== null);
 
-const listNodeResults = joinInUniqueList(...nodesResults);
-export const nodes = joinInUniqueList(...nodesGroup, ...listNodeResults);
+export const nodes = joinInUniqueList(...nodesGroup, ...nodesResults);
 
-const linksForNodesResults = listNodeResults.map((obj) => {
-    const listPath = obj.id.split(separator);
-    listPath.pop();
+export const links = nodes
+    .map((obj) => {
+        const listPath = obj.id.split(separator);
+        listPath.pop();
 
-    const source = listPath.join(separator);
-    const target = obj.id;
-    const value = 2 * listPath.length
+        const source = listPath.join(separator);
+        const target = obj.id;
+        const value = 2 * listPath.length;
 
-    return target !== sourceLinks ? { source, target, value } : {};
-});
-
-const linksForNodesGroup = nodesGroup.map((obj) => {
-    return { source: sourceLinks, target: obj.id, value: 2 };
-});
-
-export const links = joinInUniqueList(
-    ...linksForNodesResults,
-    ...linksForNodesGroup
-);
+        return target !== sourceLinks ? { source, target, value } : null;
+    })
+    .filter((obj) => obj !== null);
