@@ -20,7 +20,7 @@ export const printElementMetrics = (callbackColor) => {
         color: callbackColor(key),
     }));
     listObj
-        .filter((obj) => obj.name !== "falso_positivo" && obj.name !== "falso_negativo")
         .sort((objA, objB) => objA.name.length - objB.name.length)
+        .filter((obj) => obj.name !== "falso_positivo" && obj.name !== "falso_negativo")
         .forEach((obj) => createElement(obj));
 };

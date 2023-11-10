@@ -2,8 +2,8 @@ import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
 import * as data from "./valuesAnalise.js";
 import { printElementMetrics } from "./elementMetrics.js"
 
-const width = 1200;
-const height = 800;
+const width = 1920;
+const height = 1920;
 
 // Specify the color scale.
 const color = d3.scaleOrdinal(d3.schemeCategory10);
@@ -54,14 +54,14 @@ const node = svg
     .selectAll()
     .data(nodes)
     .join("circle")
-    .attr("r", 7)
+    .attr("r", 10)
     .attr("fill", (d) => color(d.name));
 
 // console.log(node)
 
 // node.append("text")
 //     .text((d) => d.id)
-//     .attr("x", 12) // Ajuste a posição do texto em relação ao círculo
+//     .attr("x", 12)
 //     .attr("dy", ".35em");
 
 // Add a drag behavior.
