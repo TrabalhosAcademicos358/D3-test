@@ -25,7 +25,7 @@ const joinInUniqueList = (...list) => {
 };
 
 const nodesGroup = Object.keys(json).map((key, index) => {
-    const node = { id: key, group: index };
+    const node = { id: key };
     return node;
 });
 
@@ -37,7 +37,7 @@ const nodesResults = Object.keys(json)
         const nodes = functionListFilter(listValues).map((item) => ({
             id: key + separator + item,
             name: item,
-            group: index,
+            group: item,
         }));
 
         const nodesDataResults = nodes.map((obj) => {
@@ -58,7 +58,7 @@ const nodesResults = Object.keys(json)
 const listNodeResults = joinInUniqueList(...nodesResults);
 export const nodes = joinInUniqueList(...nodesGroup, ...listNodeResults);
 
-const linksForNodesResults = listNodeResults.map((obj, index) => {
+const linksForNodesResults = listNodeResults.map((obj) => {
     const listPath = obj.id.split(separator);
     listPath.pop();
 
@@ -68,8 +68,6 @@ const linksForNodesResults = listNodeResults.map((obj, index) => {
 
     return target !== sourceLinks ? { source, target, value } : {};
 });
-
-console.log(linksForNodesResults)
 
 const linksForNodesGroup = nodesGroup.map((obj) => {
     return { source: sourceLinks, target: obj.id, value: 2 };

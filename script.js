@@ -55,7 +55,7 @@ const node = svg
     .data(nodes)
     .join("circle")
     .attr("r", 10)
-    .attr("fill", (d) => color(d.name));
+    .attr("fill", (d) => color(d.group));
 
 // console.log(node)
 
